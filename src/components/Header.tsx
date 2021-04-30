@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = (): React.ReactElement => (
+const Header: React.FC = () => (
   <div className="container">
     <nav className="navbar navbar-expand-lg navbar-light bg-light p-2">
       <Link to="/">
         <a className="navbar-brand" href="/#">
-          <img src="../public/movieLogo.jpg" alt="MovieStore" />
+          MovieStore
         </a>
       </Link>
 
