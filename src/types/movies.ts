@@ -1,5 +1,5 @@
 export interface MoviesState {
-    movies: any[];
+    movies: IMovieCard[] | [];
     loading: boolean;
     error: null | string;
 }
@@ -18,12 +18,12 @@ export interface FetchMoviesAction {
 
 export interface FetchMoviesSuccessAction {
     type: MoviesActionTypes.FETCH_MOVIES_SUCCESS;
-    payload: any[];
+    payload: IMovieCard[];
 }
 
 export interface SetMoviesAction {
     type: MoviesActionTypes.SET_MOVIES;
-    payload: any[];
+    payload: IMovieCard[];
 }
 
 export interface FetchMoviesErrorAction {

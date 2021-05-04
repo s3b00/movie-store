@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../hooks/useTypedSelector';
-import { MoviesActionTypes } from '../types/movies';
+import { IMovieCard, MoviesActionTypes } from '../types/movies';
 
 const Toolbar: React.FC = () => {
   const [title, setTitle] = useState<string>('');
@@ -35,10 +35,15 @@ const Toolbar: React.FC = () => {
     });
   };
 
-  const sort = (type: string): void => {
+  enum MovieFields {
+    Year = 'Year',
+    Title = 'Title',
+    Type = 'Type'
+  }
+  const sort = (type: MovieFields): void => {
     dispatch({
       type: MoviesActionTypes.SET_MOVIES,
-      payload: movies.sort((a, b) => {
+      payload: movies.sort((a: IMovieCard, b: IMovieCard) => {
         if (a[type] > b[type]) return 1;
         if (a[type] < b[type]) return -1;
 
@@ -123,7 +128,7 @@ const Toolbar: React.FC = () => {
             value="title"
             className="form-check-input"
             id="titleRB"
-            onChange={() => sort('Title')}
+            onChange={() => sort(MovieFields.Title)}
           />
           <label className="form-check-label" htmlFor="nameRB">
             Название
@@ -136,7 +141,7 @@ const Toolbar: React.FC = () => {
             value="year"
             className="form-check-input"
             id="yearRB"
-            onChange={() => sort('Year')}
+            onChange={() => sort(MovieFields.Year)}
           />
           <label className="form-check-label" htmlFor="abvRB">
             Год выхода
@@ -149,7 +154,7 @@ const Toolbar: React.FC = () => {
             value="type"
             className="form-check-input"
             id="typeRB"
-            onChange={() => sort('Type')}
+            onChange={() => sort(MovieFields.Year)}
           />
           <label className="form-check-label" htmlFor="attRB">
             Тип

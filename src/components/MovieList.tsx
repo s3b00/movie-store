@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTypedSelector } from '../hooks/useTypedSelector';
+import { IMovieCard } from '../types/movies';
 import { MovieCard } from './MovieCard';
 
 const MovieList: React.FC = () => {
@@ -21,7 +22,7 @@ const MovieList: React.FC = () => {
 
   return (
     <div className="d-flex justify-content-between flex-wrap m-auto">
-      {movies.map((el) => (
+      {movies.map((el: IMovieCard) => (
         <MovieCard card={el} key={el.imdbID} />
       ))}
     </div>

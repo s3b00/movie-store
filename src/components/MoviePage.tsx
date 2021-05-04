@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { MovieActionTypes } from '../types/movie';
-import { IMovieCard } from '../types/movies';
 
 export const MoviePage: React.FC<any> = ({ match }) => {
   const { movie, error, loading } = useTypedSelector((store) => store.movie);
@@ -14,7 +13,25 @@ export const MoviePage: React.FC<any> = ({ match }) => {
       type: MovieActionTypes.FETCH_MOVIE_REQUESTED,
       payload: `i=${match.params.imdbID}`,
     });
-  }, []);
+  }, [dispatch, match.params.imdbID]);
+
+  if (error) {
+    return (
+      <div>
+        Ошибка в запросе. Ошибка:
+        {' '}
+        {error}
+      </div>
+    );
+  }
+
+  if (loading) {
+    return (
+      <div>
+        Загружаем данные!
+      </div>
+    );
+  }
 
   return (
     <div className="row mt-5">

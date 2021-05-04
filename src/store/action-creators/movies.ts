@@ -7,7 +7,7 @@ import { URL } from '../../constants';
 
 import {
   FetchMoviesAction, FetchMoviesErrorAction,
-  FetchMoviesSuccessAction, MoviesActionTypes,
+  FetchMoviesSuccessAction, IMovieCard, MoviesActionTypes,
   MoviesFetchRequestAction,
 } from '../../types/movies';
 
@@ -15,7 +15,7 @@ const requestMovies = ():FetchMoviesAction => ({
   type: MoviesActionTypes.FETCH_MOVIES,
 });
 
-const requestMoviesSuccess = (data: any[]):FetchMoviesSuccessAction => ({
+const requestMoviesSuccess = (data: IMovieCard[]):FetchMoviesSuccessAction => ({
   type: MoviesActionTypes.FETCH_MOVIES_SUCCESS,
   payload: data,
 });
