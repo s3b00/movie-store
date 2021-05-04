@@ -1,35 +1,38 @@
-export interface MovieState {
-    movies: any[];
+export interface movieStateType {
+    movie: null | IMovie;
     loading: boolean;
     error: null | string;
 }
 
 export enum MovieActionTypes {
-    FETCH_MOVIES = 'FETCH_MOVIES',
-    FETCH_MOVIES_SUCCESS = 'FETCH_MOVIES_SUCCESS',
-    FETCH_MOVIES_ERROR = 'FETCH_MOVIES_ERROR'
+    FETCH_MOVIE = 'FETCH_MOVIE',
+    FETCH_MOVIE_SUCCESS = 'FETCH_MOVIE_SUCCESS',
+    FETCH_MOVIE_ERROR = 'FETCH_MOVIE_ERROR',
+    SET_MOVIE = 'SET_MOVIE',
+    FETCH_MOVIE_REQUESTED = 'FETCH_MOVIE_REQUESTED'
 }
 
-export interface FetchMoviesAction {
-    type: MovieActionTypes.FETCH_MOVIES;
+export type FetchMovieAction = {
+    type: MovieActionTypes.FETCH_MOVIE;
 }
 
-export interface FetchMoviesSuccessAction {
-    type: MovieActionTypes.FETCH_MOVIES_SUCCESS;
-    payload: any[];
+export type FetchMovieActionSuccess = {
+    type: MovieActionTypes.FETCH_MOVIE_SUCCESS,
+    payload: IMovie
 }
 
-export interface FetchMoviesErrorAction {
-    type: MovieActionTypes.FETCH_MOVIES_ERROR;
-    payload: string;
+export type FetchMovieActionError = {
+    type: MovieActionTypes.FETCH_MOVIE_ERROR,
+    payload: string
 }
 
-export type MovieAction = FetchMoviesAction | FetchMoviesErrorAction | FetchMoviesSuccessAction
-
-export type IMovieRating = {
-    'Source': string;
-    'Value': string;
+export type FetchMovieRequestedAction= {
+    type: MovieActionTypes.FETCH_MOVIE_REQUESTED,
+    payload: string
 }
+
+export type MovieAction = FetchMovieAction
+| FetchMovieActionError | FetchMovieActionSuccess
 
 export type IMovie = {
     'Title': string;
@@ -59,8 +62,7 @@ export type IMovie = {
     'Response': string | boolean;
 };
 
-export type IMovies = {
-    'Search': IMovie[],
-    'totalResults': number,
-    'Response': boolean
+export type IMovieRating = {
+    'Source': string;
+    'Value': string;
 }

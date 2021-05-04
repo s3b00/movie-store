@@ -1,13 +1,30 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useTypedSelector } from '../hooks/useTypedSelector';
+import { MovieCard } from './MovieCard';
 
 const MovieList: React.FC = () => {
-  const state = useSelector((store) => store);
+  const { movies, error, loading } = useTypedSelector((store) => store.movies);
 
-  console.log(state);
+  if (loading) {
+    return (
+      <div>Загружается..</div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div>
+        <p>{error}</p>
+      </div>
+    );
+  }
 
   return (
-    <div />
+    <div className="d-flex justify-content-between flex-wrap m-auto">
+      {movies.map((el) => (
+        <MovieCard card={el} key={el.imdbID} />
+      ))}
+    </div>
   );
 };
 
