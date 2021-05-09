@@ -131,7 +131,7 @@ const Toolbar: React.FC = () => {
             onChange={() => sort(MovieFields.Title)}
           />
           <label className="form-check-label" htmlFor="nameRB">
-            Название
+            Title
           </label>
         </div>
         <div className="form-check ">
@@ -144,7 +144,7 @@ const Toolbar: React.FC = () => {
             onChange={() => sort(MovieFields.Year)}
           />
           <label className="form-check-label" htmlFor="abvRB">
-            Год выхода
+            Year
           </label>
         </div>
         <div className="form-check">
@@ -157,7 +157,7 @@ const Toolbar: React.FC = () => {
             onChange={() => sort(MovieFields.Year)}
           />
           <label className="form-check-label" htmlFor="attRB">
-            Тип
+            Type
           </label>
         </div>
       </div>

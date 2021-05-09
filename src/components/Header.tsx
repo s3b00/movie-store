@@ -27,13 +27,13 @@ const Header: React.FC = () => (
           <li className="nav-item active">
             <Link to="/">
               <a className="nav-link" href="/#">
-                Главная страница
+                Main page
               </a>
             </Link>
           </li>
           <li className="nav-item">
             <Link to="/about_me">
-              <a className="nav-link" href="/#">О команде</a>
+              <a className="nav-link" href="/#">About me</a>
             </Link>
           </li>
         </ul>
