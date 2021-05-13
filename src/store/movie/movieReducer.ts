@@ -1,7 +1,4 @@
-import {
-  MovieAction,
-  MovieActionTypes, movieStateType,
-} from '../../types/movie';
+import { MovieAction, MovieActionTypes, movieStateType } from './movie';
 
 const initialState:movieStateType = {
   movie: null,

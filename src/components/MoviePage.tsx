@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../hooks/useTypedSelector';
-import { MovieActionTypes } from '../types/movie';
+import { MovieActionTypes } from '../store/movie/movie';
 
 export const MoviePage: React.FC<any> = ({ match }) => {
   const { movie, error, loading } = useTypedSelector((store) => store.movie);

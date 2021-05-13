@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { MovieFields } from '../constants';
 import { useTypedSelector } from '../hooks/useTypedSelector';
-import { IMovieCard, MoviesActionTypes } from '../types/movies';
+import { IMovieCard, MoviesActionTypes } from '../store/movies/movies';
 
 const Toolbar: React.FC = () => {
   const [title, setTitle] = useState<string>('');
@@ -35,11 +36,6 @@ const Toolbar: React.FC = () => {
     });
   };
 
-  enum MovieFields {
-    Year = 'Year',
-    Title = 'Title',
-    Type = 'Type'
-  }
   const sort = (type: MovieFields): void => {
     dispatch({
       type: MoviesActionTypes.SET_MOVIES,

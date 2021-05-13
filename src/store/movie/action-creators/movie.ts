@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { call, put, takeEvery } from 'redux-saga/effects';
-import { URL } from '../../constants';
+import { URL } from '../../../constants';
 import {
   FetchMovieAction, FetchMovieActionError,
   FetchMovieActionSuccess, IMovie,
   MovieActionTypes,
-} from '../../types/movie';
-import { MoviesFetchRequestAction } from '../../types/movies';
+} from '../movie';
+import { MoviesFetchRequestAction } from '../../movies/movies';
 
 export const FetchMovie = ():FetchMovieAction => ({
   type: MovieActionTypes.FETCH_MOVIE,

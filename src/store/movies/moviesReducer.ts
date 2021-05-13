@@ -1,7 +1,7 @@
 import {
   MoviesAction,
   MoviesActionTypes, MoviesState,
-} from '../../types/movies';
+} from './movies';
 
 const initialState: MoviesState = {
   movies: [],

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { IMovieCard } from '../types/movies';
+import { IMovieCard } from '../store/movies/movies';
 
 interface MovieCardPropsType {
     card: IMovieCard

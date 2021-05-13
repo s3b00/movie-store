@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTypedSelector } from '../hooks/useTypedSelector';
-import { IMovieCard } from '../types/movies';
+import { IMovieCard } from '../store/movies/movies';
 import { MovieCard } from './MovieCard';
 
 const MovieList: React.FC = () => {

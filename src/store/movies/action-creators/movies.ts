@@ -3,13 +3,13 @@ import {
   put, call, takeEvery,
 } from 'redux-saga/effects';
 
-import { URL } from '../../constants';
+import { URL } from '../../../constants';
 
 import {
   FetchMoviesAction, FetchMoviesErrorAction,
   FetchMoviesSuccessAction, IMovieCard, MoviesActionTypes,
   MoviesFetchRequestAction,
-} from '../../types/movies';
+} from '../movies';
 
 const requestMovies = ():FetchMoviesAction => ({
   type: MoviesActionTypes.FETCH_MOVIES,
